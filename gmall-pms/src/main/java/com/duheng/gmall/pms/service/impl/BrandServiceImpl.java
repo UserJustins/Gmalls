@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.duheng.gmall.pms.entity.Brand;
 import com.duheng.gmall.pms.mapper.BrandMapper;
 import com.duheng.gmall.pms.service.BrandService;
+import com.duheng.gmall.vo.PageInfoVo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements BrandService {
 
+    @Override
+    public PageInfoVo brandPageInfo(String keyword, Integer pageNum, Integer pageSize) {
+        return null;
+    }
 }
