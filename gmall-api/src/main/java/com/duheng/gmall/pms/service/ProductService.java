@@ -1,31 +1,23 @@
 package com.duheng.gmall.pms.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.duheng.gmall.pms.entity.Product;
 import com.duheng.gmall.vo.PageInfoVo;
-import com.duheng.gmall.vo.product.PmsProductParam;
 import com.duheng.gmall.vo.product.PmsProductQueryParam;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
  * 商品信息 服务类
  * </p>
  *
- * @author Lfy
- * @since 2019-05-08
+ * @author DuHeng
+ * @since 2020-02-07
  */
 public interface ProductService extends IService<Product> {
-
     /**
-     * 根据复杂查询条件返回分页数据
+     * 复杂的商品分页查询
      * @param productQueryParam
      * @return
      */
     PageInfoVo productPageInfo(PmsProductQueryParam productQueryParam);
-
-    /**
-     * 保存商品数据
-     * @param productParam
-     */
-    void saveProduct(PmsProductParam productParam);
 }

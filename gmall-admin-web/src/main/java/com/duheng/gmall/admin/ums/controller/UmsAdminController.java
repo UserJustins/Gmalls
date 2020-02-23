@@ -86,7 +86,7 @@ public class UmsAdminController {
 //
 //        }
         log.debug("需要注册的用户详情：{}",umsAdminParam);
-        int i = 10/0;
+        //int i = 10/0;
         return new CommonResult().success(admin);
     }
 
@@ -106,7 +106,7 @@ public class UmsAdminController {
     @PostMapping(value = "/login")
     public Object login(@RequestBody UmsAdminLoginParam umsAdminLoginParam, BindingResult result) {
         //去数据库登陆
-        Admin admin = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
+       Admin admin = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
 
 
         //登陆成功生成token，此token携带基本用户信息，以后就不用去数据库了
@@ -124,6 +124,7 @@ public class UmsAdminController {
     @GetMapping(value = "/token/refresh")
     public Object refreshToken(HttpServletRequest request) {
         //1、获取请求头中的Authorization完整值
+        //token这里边加了一个Header--->Authorization=Bearer
         String oldToken = request.getHeader(tokenHeader);
         String refreshToken = "";
 

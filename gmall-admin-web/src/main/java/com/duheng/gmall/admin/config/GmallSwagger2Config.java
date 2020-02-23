@@ -1,4 +1,4 @@
-package com.atguigu.gmall.admin.config;
+package com.duheng.gmall.admin.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;

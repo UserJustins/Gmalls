@@ -3,10 +3,12 @@ package com.duheng.gmall.to;
 import com.alibaba.fastjson.JSON;
 import org.springframework.validation.BindingResult;
 
+import java.io.Serializable;
+
 /**
  * 通用返回对象
  */
-public class CommonResult {
+public class CommonResult implements Serializable {
     //操作成功
     public static final int SUCCESS = 200;
     //操作失败

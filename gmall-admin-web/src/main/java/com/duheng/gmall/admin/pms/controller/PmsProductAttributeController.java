@@ -72,4 +72,5 @@ public class PmsProductAttributeController {
         //TODO 根据分类查询属性列表或参数列表
         return new CommonResult().success(null);
     }
+
 }

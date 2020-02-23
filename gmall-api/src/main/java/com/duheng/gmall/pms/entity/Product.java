@@ -19,8 +19,8 @@ import java.util.Date;
  * 商品信息
  * </p>
  *
- * @author Lfy
- * @since 2019-05-08
+ * @author DuHeng
+ * @since 2020-02-07
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

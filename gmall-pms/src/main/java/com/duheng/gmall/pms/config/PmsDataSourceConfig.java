@@ -1,14 +1,12 @@
 package com.duheng.gmall.pms.config;
 
-import io.shardingjdbc.core.api.MasterSlaveDataSourceFactory;
+import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.ResourceUtils;
 
 import javax.sql.DataSource;
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
 
 /*************************
  Author: 杜衡
@@ -18,9 +16,21 @@ import java.sql.SQLException;
 @Configuration
 public class PmsDataSourceConfig {
     @Bean
-    public DataSource dataSource() throws IOException, SQLException {
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource() {
+
         //spring的ResourceUtils来获取资源
-        File file = ResourceUtils.getFile("classpath:sharding-jdbc.yml");
-        return MasterSlaveDataSourceFactory.createDataSource(file);
+        //File file = ResourceUtils.getFile("classpath:sharding-jdbc.yml");
+        //return MasterSlaveDataSourceFactory.createDataSource(file);
+
+        return new DruidDataSource();
+    }
+
+    /**
+     * 分页插件
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
     }
 }

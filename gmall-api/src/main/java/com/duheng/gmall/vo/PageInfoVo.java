@@ -1,7 +1,6 @@
 package com.duheng.gmall.vo;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -33,8 +32,8 @@ public class PageInfoVo implements Serializable {
     private Long pageNum;
 
 
-    public static PageInfoVo getVo(IPage iPage,Long size){
-        return new PageInfoVo(iPage.getTotal(),iPage.getPages(),size,iPage.getRecords(),
+    public static PageInfoVo getVo(IPage iPage){
+        return new PageInfoVo(iPage.getTotal(),iPage.getPages(),iPage.getSize(),iPage.getRecords(),
                 iPage.getCurrent());
 
     }

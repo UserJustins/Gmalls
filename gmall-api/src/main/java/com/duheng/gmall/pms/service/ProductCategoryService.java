@@ -1,8 +1,8 @@
 package com.duheng.gmall.pms.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.duheng.gmall.pms.entity.ProductCategory;
 import com.duheng.gmall.vo.product.PmsProductCategoryWithChildrenItem;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
@@ -11,15 +11,10 @@ import java.util.List;
  * 产品分类 服务类
  * </p>
  *
- * @author Lfy
- * @since 2019-05-08
+ * @author DuHeng
+ * @since 2020-02-07
  */
 public interface ProductCategoryService extends IService<ProductCategory> {
 
-    /**
-     * 查询这个菜单以及他的子菜单
-     * @param i
-     * @return
-     */
-    List<PmsProductCategoryWithChildrenItem> listCatelogWithChilder(Integer i);
+    List<PmsProductCategoryWithChildrenItem> listCatelogWithChilder(long i);
 }

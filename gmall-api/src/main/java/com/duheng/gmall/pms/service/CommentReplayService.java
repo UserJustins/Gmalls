@@ -1,7 +1,7 @@
 package com.duheng.gmall.pms.service;
 
-import com.duheng.gmall.pms.entity.CommentReplay;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.duheng.gmall.pms.entity.CommentReplay;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author DuHeng
- * @since 2020-01-20
+ * @since 2020-02-07
  */
 public interface CommentReplayService extends IService<CommentReplay> {
 

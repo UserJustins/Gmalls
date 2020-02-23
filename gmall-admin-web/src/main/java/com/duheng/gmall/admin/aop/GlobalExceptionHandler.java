@@ -14,18 +14,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-
-    @ExceptionHandler(value = {ArithmeticException.class})
-    public Object handlerException(Exception exception){
-        log.error("系统全局异常感知，信息：{}",exception.getStackTrace());
-        return new CommonResult().validateFailed("数学没学好");
-    }
-
-
-    @ExceptionHandler(value = {NullPointerException.class})
+    @ExceptionHandler
     public Object handlerException02(Exception exception){
         log.error("系统出现异常感知，信息：{}",exception.getMessage());
-        return new CommonResult().validateFailed("空指针了...");
+        return new CommonResult().validateFailed("系统异常，请联系后台管理员");
     }
 
 

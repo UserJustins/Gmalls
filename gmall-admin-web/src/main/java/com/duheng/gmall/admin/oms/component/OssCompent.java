@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +18,7 @@ import java.util.Date;
  * Created by duheng 5/17.
  */
 @Slf4j
-//@Service
+@Service
 public class OssCompent {
 
 	@Value("${aliyun.oss.policy.expire}")

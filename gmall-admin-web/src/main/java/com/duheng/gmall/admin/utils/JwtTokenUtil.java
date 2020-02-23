@@ -1,7 +1,10 @@
 package com.duheng.gmall.admin.utils;
 
 import com.duheng.gmall.ums.entity.Admin;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,16 +22,20 @@ import java.util.Map;
  * header的格式（算法、token的类型）：
  * {"alg": "HS512","typ": "JWT"}
  * payload的格式（用户名、创建时间、生成时间）：
+ *      因为这一段字符串能进行解密，因此不能放敏感的信息，比如密码
  *      {"id":1,"sub":"wang","created":1489079981393,"exp":1489684781}
  */
+@Slf4j
 @Component
 public class JwtTokenUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
     private static final String CLAIM_KEY_USERID = "id";
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
+    //加盐（服务端的密钥）
     @Value("${gmall.jwt.secret}")
     private String secret;
+    //过期时间以秒为单位
     @Value("${gmall.jwt.expiration}")
     private Long expiration;
 
@@ -44,7 +51,8 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 从token中获取JWT中的负载
+     * 从token中获取JWT中的payload
+     *  解析第二段字符串
      */
     private Claims getClaimsFromToken(String token) {
         Claims claims = null;
@@ -67,7 +75,7 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 从token中获取登录用户名
+     * 从token中解析payload后获取登录用户名
      */
     public String getUserNameFromToken(String token) {
         String username;
@@ -81,7 +89,7 @@ public class JwtTokenUtil {
     }
 
     /**
-     * 验证token是否还有效
+     * 验证token是否还有效，用户名和是否超时
      *
      * @param token       客户端传入的token
      * @param admin 从数据库中查询出来的用户信息
@@ -111,6 +119,11 @@ public class JwtTokenUtil {
      * 根据用户信息生成token
      */
     public String generateToken(Admin admin) {
+        if (admin == null) {
+            log.debug("用户不存在,无法生成令牌");
+            throw new RuntimeException("用户不存在,无法生成令牌");
+        }
+        System.out.println("throw后程序还运行不");
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERID, admin.getId());
         claims.put(CLAIM_KEY_USERNAME, admin.getUsername());

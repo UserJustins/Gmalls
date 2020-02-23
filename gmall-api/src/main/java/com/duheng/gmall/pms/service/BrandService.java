@@ -1,7 +1,7 @@
 package com.duheng.gmall.pms.service;
 
-import com.duheng.gmall.pms.entity.Brand;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.duheng.gmall.pms.entity.Brand;
 import com.duheng.gmall.vo.PageInfoVo;
 
 /**
@@ -10,7 +10,7 @@ import com.duheng.gmall.vo.PageInfoVo;
  * </p>
  *
  * @author DuHeng
- * @since 2020-01-20
+ * @since 2020-02-07
  */
 public interface BrandService extends IService<Brand> {
 

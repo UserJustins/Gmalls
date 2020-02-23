@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author DuHeng
- * @since 2020-01-20
+ * @since 2020-02-07
  */
 public interface ProductFullReductionMapper extends BaseMapper<ProductFullReduction> {
 

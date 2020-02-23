@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author DuHeng
- * @since 2020-01-20
+ * @since 2020-02-07
  */
 public interface ProductOperateLogService extends IService<ProductOperateLog> {
 

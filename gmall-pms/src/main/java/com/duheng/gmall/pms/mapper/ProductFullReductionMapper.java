@@ -1,7 +1,7 @@
 package com.duheng.gmall.pms.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.duheng.gmall.pms.entity.ProductFullReduction;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.duheng.gmall.pms.entity.ProductFullReduction;
  * </p>
  *
  * @author DuHeng
- * @since 2020-01-20
+ * @since 2020-02-07
  */
 public interface ProductFullReductionMapper extends BaseMapper<ProductFullReduction> {
 

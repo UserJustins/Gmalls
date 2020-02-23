@@ -25,7 +25,7 @@ public class UmsMemberLevelController {
      */
     @GetMapping("/memberLevel/list")
     public CommonResult memberLevelList(){
-        List<MemberLevel> list = memberLevelService.list();
+        List<MemberLevel> list = memberLevelService.listAll();
         return new CommonResult().success(list);
     }
 }

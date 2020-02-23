@@ -9,8 +9,6 @@ import com.duheng.gmall.vo.product.PmsProductQueryParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +34,7 @@ public class PmsProductController {
 
 
         log.debug("当前线程....{}-->{}",Thread.currentThread().getId(),Thread.currentThread().getName());
-        productService.saveProduct(productParam);
+       // productService.saveProduct(productParam);
         return new CommonResult().success(null);
     }
 
@@ -54,12 +52,17 @@ public class PmsProductController {
         return new CommonResult().success(null);
     }
 
+    /**
+     * 商品的多条件查询，查询条件封装在PmsProductQueryParam
+     * @param param
+     * @return
+     */
     @ApiOperation("查询商品")
     @GetMapping(value = "/list")
-    public Object getList(PmsProductQueryParam productQueryParam) {
+    public Object getList(PmsProductQueryParam param) {
         //TODO 查询商品
 
-        PageInfoVo pageInfoVo =  productService.productPageInfo(productQueryParam);
+        PageInfoVo pageInfoVo =  productService.productPageInfo(param);
 
         return new CommonResult().success(pageInfoVo);
     }
